@@ -1,0 +1,70 @@
+@charset "ISO-8859-1";
+#title
+{
+	
+	
+}
+
+#title2
+{
+/*+placement: 270px -49px;*/
+text-align: center;
+}
+
+#line
+{
+/*+placement: -14px -85px;*/
+position: relative;
+left: -14px;
+top: -85px;
+}
+
+#guest
+{
+/*+placement: 623px -52px;*/
+text-align: right;
+/*+placement: -15px -54px;*/
+position: relative;
+left: -15px;
+top: -54px;
+}
+
+#signin
+{
+/*+placement: 512px -42px;*/
+text-align: left;
+/*+placement: 690px -42px;*/
+position: relative;
+left: 690px;
+top: -42px;
+}
+
+#login
+{
+/*+placement: 612px -75px;*/
+text-align: right;
+/*+placement: -259px -76px;*/
+position: relative;
+left: -259px;
+top: -76px;
+}
+
+#form
+{
+}
+
+#cerca
+{
+/*+placement: 310px -42px;*/
+text-align: center;
+}
+
+#tendina
+{
+/*+placement: 311px -43px;*/
+text-align: center;
+/*+placement: 3px -11px;*/
+position: relative;
+left: 3px;
+top: -11px;
+}
