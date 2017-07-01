@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+   <title>Esempio di una mappa con Google maps v3</title>
+   <meta name="description" content="Un esempio di una mappa Google(tm) su una pagina HTML usando Google Maps v3, HTML5 e CSS3">
+   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=it"></script>
+   <script type="text/javascript">
+      function initialize() {
+         var latlng = new google.maps.LatLng(37.6746614, 12.7820611); // centro della mappa
+         var myLatlng = new google.maps.LatLng(37.6786097,12.7915672); // segnapunto
+         // definizione della mappa
+         var myOptions = {
+             zoom: 8,
+             center: latlng,
+            mapTypeId: google.maps.MapTypeId.HYBRID,
+            mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR}
+         }
+         mymap = new google.maps.Map(document.getElementById("map"), myOptions);
+         // definizione segnapunto
+         var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: mymap,
+            title:"Il teatro Selinus si trova qui!"
+         });
+      }
+   </script>
+</head>
+<body onload="initialize()">
+   <div id="map" style="width: 395px; height: 650px; position: relative; top:0; overflow: hidden;"></div>
+</body>
+</html>
