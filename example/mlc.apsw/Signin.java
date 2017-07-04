@@ -1,8 +1,9 @@
+
+
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,16 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Welcome
+ * Servlet implementation class Signin
  */
-@WebServlet("/Welcome")
-public class Welcome extends HttpServlet {
+@WebServlet("/Signin")
+public class Signin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Welcome() {
+    public Signin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,8 +41,39 @@ public class Welcome extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("Welcome user");
-        response.sendRedirect("index.html");
-      }  
+        
+        String id = request.getParameter("email");
+        String password = request.getParameter("psw");
+        
+        
+        try{
+        	Class.forName("com.mysql.jdbc.Driver");
+        Connection  con=DriverManager.getConnection
+                ("jdbc:mysql://localhost:3306/esempio","root","01072014");
 
-}
+   PreparedStatement ps=con.prepareStatement
+             ("insert into anagrafica values (?,?)");
+
+   ps.setString(1,password);
+   ps.setString(2, id);
+  
+   int i=ps.executeUpdate();
+   
+     if(i>0)
+     {
+       out.println("You are sucessfully registered");
+       response.sendRedirect("index.html");
+     }
+   
+   }
+   catch(Exception se)
+   {
+	   
+       se.printStackTrace();
+   }
+
+ }
+    }  
+
+
+
