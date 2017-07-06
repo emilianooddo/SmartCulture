@@ -1,1 +1,1 @@
-# SmartCulture
+# SmartTourist
