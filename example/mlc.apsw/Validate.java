@@ -2,7 +2,9 @@ import java.sql.*;
 
 public class Validate
  {
-     public static boolean checkUser(String id,String password) 
+
+	
+	public static boolean checkUser(String id,String password) 
      {
       boolean st =false;
       try{
@@ -19,11 +21,13 @@ public class Validate
          ps.setString(2, password) ;
          ResultSet rs =ps.executeQuery();
          st = rs.next();
-        
+
+         
       }catch(Exception e)
       {
           e.printStackTrace();
       }
          return st;                 
-  }   
+  }
+     
 }

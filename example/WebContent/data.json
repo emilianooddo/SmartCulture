@@ -1,0 +1,45 @@
+[
+{
+"name":"Teatro Massimo", 
+"x":38.1203, 
+"y":13.3572 ,
+"citta":"Palermo", 
+"desc": "<div><h3>Teatro Massimo</h3><p>Il teatro massimo Vittorio Emanuele di Palermo &eacute il pi&uacute grande edificio teatrale lirico d'Italia, e uno dei pi&uacute grandi d'Europa, terzo per ordine di grandezza architettonica dopo l'Op&eacutera National di Parigi e la Staatsoper di Vienna. Ambienti di rappresentanza, sale, gallerie e scale monumentali circondano il teatro vero e proprio, formando un complesso architettonico di grandiose proporzioni.</p> <p><img class=\"banner\" src=\"images/massimo.jpg\" alt=\"Teatro Massimo\" style=\"width:304px;height:228px; float:left; margin: 10px \" \/></p>  </div>" 
+},
+{
+"name":"Teatro Politeama", 
+"x":38.1253, 
+"y":13.3567 ,
+"citta":"Palermo", 
+"desc": "<div> <h3>Teatro Politeama</h3><p>Il teatro Politeama Garibaldi di Palermo, progettato dall’architetto Giuseppe Damiani Almejda è un armonioso e imponente edificio di stile pompeiano che si trova in piazza  Ruggero Settimo, una delle piazze più belle e vivaci della città. </p> <p><img class=\"banner\" src=\"images/politeama.jpg\" alt=\"Teatro Politeama\" style=\"width:304px;height:228px; float:left; margin: 10px \" \/></p>  </div>" 
+},
+{
+"name":"Cattedrale", 
+"x":38.1146, 
+"y":13.356 ,
+"citta":"Palermo", 
+"desc": "<div> <h3>Cattedrale</h3><p>La cattedrale metropolitana primaziale della Santa Vergine Maria Assunta, nota semplicemente come cattedrale di Palermo, è il principale luogo di culto cattolico della città di Palermo e cattedrale dell'omonima arcidiocesi metropolitana.Dal 3 luglio 2015 fa parte del Patrimonio dell'umanità (Unesco) nell'ambito dell'Itinerario Arabo-Normanno di Palermo, Cefalù e Monreale</p> <p><img class=\"banner\" src=\"images/cattedrale.jpg\" alt=\"Cattedrale\" style=\"width:304px;height:200px; float:left; margin: 10px \" \/></p>  </div>" 
+},
+{
+"name":"Museo Archeologco Salinas", 
+"x":38.1208, 
+"y":13.3603 ,
+"citta":"Palermo", 
+"desc": "<div> <h3>Museo Archeologco Salinas</h3><p>Il Museo archeologico regionale Antonio Salinas ha sede a Palermo, in Sicilia, e possiede una delle più ricche collezioni d'arte punica e greca d'Italia, nonché testimonianze di gran parte della storia siciliana. Il museo, già Casa dei Padri della Congregazione di San Filippo Neri, è stato dedicato ad Antonio Salinas, celebre archeologo e numismatico palermitano. Fa parte del complesso monumentale dell'Olivella, che comprende anche la chiesa di San Ignazio e l'attiguo Oratorio.</p> <p><img class=\"banner\" src=\"images/salinas.jpg\" alt=\"Museo Archeologico Salinas\" style=\"width:304px;height:228px; float:left; margin: 10px \" \/></p>  </div>" 
+},
+{
+"name":"Cappella Palatina", 
+"x":38.110927, 
+"y":13.353539 ,
+"citta":"Palermo", 
+"desc": "<div> <h3>Cappella Palatina</h3><p>La Cappella Palatina &eacute la cappella reale e imperiale del palazzo ed &eacute costituita da una basilica a tre navate che si trova all'interno del Palazzo dei Normanni a Palermo. L'ingresso al pubblico della chiesa è sul lato ovest del palazzo, in Piazza Indipendenza.La chiesa è dedicata a san Pietro apostolo.</p> <p><img class=\"banner\" src=\"images/palatina.jpg\" alt=\"Cappella Palatina\" style=\"width:304px;height:228px; float:left; margin: 10px \" \/></p>  </div>" 
+},
+{
+"name":"Palazzina Cinese", 
+"x":38.167041, 
+"y":13.330349 ,
+"citta":"Palermo", 
+"desc": "<div> <h3>Palazzina Cinese</h3><p>La Palazzina Cinese, detta anche Casina Cinese, è un'antica dimora reale dei Borbone delle Due Sicilie, situata a Palermo a margine del Parco della Favorita, ai confini della Riserva di Monte Pellegrino.</p> <p><img class=\"banner\" src=\"images/cinese.JPG\" alt=\"Palazzina Cinese\" style=\"width:304px;height:228px; float:left; margin: 10px \" \/></p>  </div>"}
+
+
+]

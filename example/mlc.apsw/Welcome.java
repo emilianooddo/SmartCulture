@@ -40,8 +40,11 @@ public class Welcome extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("Welcome user");
-        response.sendRedirect("index.html");
+        //String nome = (String)request.getAttribute("nome");
+		//String cognome = (String)request.getAttribute("cognome");
+        //out.println("Welcome" + nome + cognome);
+        //response.sendRedirect("index.html");
+        response.sendRedirect("index2.jsp");
       }  
 
 }

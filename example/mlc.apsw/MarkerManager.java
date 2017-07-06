@@ -53,8 +53,8 @@ public class MarkerManager extends HttpServlet {
         
         while (rs.next()) {
         	
-        	float x = rs.getFloat("lat_x");   
-        	float y = rs.getFloat("lat_y");  
+        	String x = rs.getString("lat_x");   
+        	String y = rs.getString("lat_y");  
         	String type = rs.getString("tipo");
         	String name = rs.getString("nome");
         	String city = rs.getString("citta");
@@ -64,20 +64,17 @@ public class MarkerManager extends HttpServlet {
         	
         	        }
         int size = myElements.size();
-        float[] coordinate_x = new float[size];
-        float[] coordinate_y = new float[size];
+        String[] coordinate_x = new String[size];
+        String[] coordinate_y = new String[size];
         Luogo[] array = myElements.toArray(new Luogo[size]);
         
         for(i=0;i<size;i++){
         	coordinate_x[i] = array[i].getX();
         	coordinate_y[i] = array[i].getY();
-        	
-        	
-        }
+        	}
+       
         
-        /*for(i=0;i<size;i++){
-          out.println(coordinate_x[i]);  
-        out.println(coordinate_y[i]);  }*/
+       
         request.setAttribute("coordinate_x", coordinate_x);
         request.setAttribute("coordinate_y", coordinate_y);
         request.setAttribute("size", size);
@@ -90,11 +87,6 @@ public class MarkerManager extends HttpServlet {
         {
             e.printStackTrace();
         }
-        
-        
 
-        //Luogo[] array = myElements.toArray(new Luogo[myElements.size()]);
-        //for(i=0;i<myElements.size();i++)
-        //out.println(array[i] + "<br>");
         }
 }
