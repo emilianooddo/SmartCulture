@@ -12,6 +12,9 @@ String cognome = (String)request.getAttribute("cognome");
 	%>
 <h2>Cerca i tuoi luoghi di interesse</h2>
 <h5>Benvenuto <%=nome%> <%=cognome%></h5>
+
+<a href="Logout">Logout</a>|  
+<a href="Profile">Profile</a>  
 <form method="post" action="markerManager">
 Città:<input type="text" name="citta" >
   <select name="tipo">

@@ -78,6 +78,9 @@ public class Login2 extends HttpServlet {
             RequestDispatcher dsp2 = request.getRequestDispatcher("index2.jsp");
             //dsp.forward(request,response);
             dsp2.forward(request,response);
+            
+            HttpSession session=request.getSession();  
+            session.setAttribute("nome",nome);  
             }else
             {
                 out.println("Username or Password incorrect");
@@ -92,6 +95,6 @@ public class Login2 extends HttpServlet {
             e.printStackTrace();
         }
                             
-    }
+        out.close();  }
 
 }
