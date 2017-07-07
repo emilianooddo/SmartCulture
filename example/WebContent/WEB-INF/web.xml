@@ -13,6 +13,14 @@
     <servlet-class>Signin</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>Logout</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Profile</servlet-name>
+    <servlet-class>Profile</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>Welcome</servlet-name>
     <servlet-class>Welcome</servlet-class>
   </servlet>
@@ -25,14 +33,29 @@
     <url-pattern>/signin</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+  
     <servlet-name>Welcome</servlet-name>
     <url-pattern>/Welcome</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  
+    <servlet-name>Profile</servlet-name>
+    <url-pattern>/Profile</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>markerManager</servlet-name>
     <url-pattern>/markerManager</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>Signin.html</welcome-file>
+    <welcome-file>SimpleSignin.html</welcome-file>
+  </welcome-file-list>
+   <welcome-file-list>
+    <welcome-file>SimpleLogin.html</welcome-file>
   </welcome-file-list>
 </web-app>

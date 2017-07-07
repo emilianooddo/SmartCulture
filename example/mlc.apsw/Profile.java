@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,13 +33,15 @@ public class Profile extends HttpServlet {
 		// TODO Auto-generated method stub
 		 response.setContentType("text/html");  
 	        PrintWriter out=response.getWriter();  
-	        request.getRequestDispatcher("profile.html").include(request, response);  
+	        request.getRequestDispatcher("profile.jsp").include(request, response);  
 	          
 	        HttpSession session=request.getSession(false);  
 	        if(session!=null){  
-	        String name=(String)session.getAttribute("nome");  
-	          
-	        out.print("Hello, "+name+" Welcome to Profile");  
+	        String nome=(String)session.getAttribute("nome");  
+	        
+	        out.print("Hello, "+nome+" Welcome to Profile"); 
+
+	        
 	        }  
 	        else{  
 	            out.print("Please login first");  
@@ -55,5 +58,6 @@ public class Profile extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
 
 }

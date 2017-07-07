@@ -87,6 +87,6 @@ public class MarkerManager extends HttpServlet {
         {
             e.printStackTrace();
         }
-
+        out.close(); 
         }
 }

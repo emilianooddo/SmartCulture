@@ -3,7 +3,11 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.FilterChain;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,17 +35,34 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		
+        
+        //request.getRequestDispatcher("SimpleSignin.html").include(request, response);  
+        //request.getRequestDispatcher("profile.jsp").include(request, response);  
+          
+        
+        
+		HttpSession session = request.getSession(false);
+		session.invalidate(); 
 		response.setContentType("text/html");  
-        PrintWriter out=response.getWriter();  
-          
+        PrintWriter out=response.getWriter(); 
+        
+		/*session.removeAttribute("nome");
+		session.removeAttribute("cognome");
+		session.removeAttribute("foto");
+		session.removeAttribute("id");*/
+        session.getMaxInactiveInterval();
+		
+		
+		//session.getMaxInactiveInterval(); 
+         
+        
+        
+        
+        out.println("Logout!Your session was destroyed successfully!!");
         request.getRequestDispatcher("SimpleSignin.html").include(request, response);  
-          
-        HttpSession session=request.getSession();  
-        session.invalidate();  
-          
-        out.print("You are successfully logged out!");  
-          
-        out.close();  
+    	out.close();
+        
 	}
 
 	/**
@@ -51,5 +72,7 @@ public class Logout extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	
 
 }

@@ -41,7 +41,7 @@ public class Login2 extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+       
         String id = request.getParameter("id");
         String password = request.getParameter("password");
         
@@ -59,28 +59,30 @@ public class Login2 extends HttpServlet {
            ps.setString(1, id);
            ps.setString(2, password) ;
            ResultSet rs =ps.executeQuery();
-           
+           HttpSession session = null;
            
            if(rs.next()) {
-            	
+        	   //request.getRequestDispatcher("index2.jsp").include(request, response);  
+        	   
             	String nome = rs.getString("nome");   
             	String cognome = rs.getString("cognome");  
             	String data = rs.getString("data");
             	String email = rs.getString("id");
             	String psw = rs.getString("password");
-            	//Utente u = new Utente(nome,cognome,email,psw,data);
+            	String foto= rs.getString("foto");
             	
+            	
+             session=request.getSession();  
+             
+            session.setAttribute("nome", nome);
+            session.setAttribute("cognome", cognome);
+            session.setAttribute("foto", foto);
+            out.print("WELCOME, "+nome); 
+        	response.sendRedirect("index2.jsp");
             
-            request.setAttribute("nome", nome);
-            request.setAttribute("cognome", cognome);
-
-            //RequestDispatcher dsp=request.getRequestDispatcher("Welcome");
-            RequestDispatcher dsp2 = request.getRequestDispatcher("index2.jsp");
-            //dsp.forward(request,response);
-            dsp2.forward(request,response);
             
-            HttpSession session=request.getSession();  
-            session.setAttribute("nome",nome);  
+             
+             
             }else
             {
                 out.println("Username or Password incorrect");
