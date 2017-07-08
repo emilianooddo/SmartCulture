@@ -55,7 +55,7 @@ public class Utente {
 	}
 
 	public String toString(){
-		return "Info: \n"+ " Nome: " + getNome() +"\n" + " Cognome: " + getCognome() +"\n" + " Data di nascita: " + getData() +"\n"; 
+		return "Info: </br>"+ " Nome: " + getNome() +"</br>" + " Cognome: " + getCognome() +"</br>" ; 
 	}
 }
 
