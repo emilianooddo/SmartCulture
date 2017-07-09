@@ -6,13 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
 <%
-		
-String foto = (String)session.getAttribute("foto");
-
+String friend = (String)session.getAttribute("user_ric");
 %>
-<a href="friendList">Lista amici</a>  
-<img src=" <%=foto%>" alt="Mia Immagine" style= width:228px;height:228px;>
+
+<body>
+<h2> Richieste di amicizia in sospeso</h2>
+<div id="demo"> </div>
+
+
+
 </body>
 </html>

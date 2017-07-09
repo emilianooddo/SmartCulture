@@ -15,9 +15,7 @@
 <body onload="maps()">
 
 		<%
-		//String coordinate_x = (String)request.getAttribute("coordinate_x");
-		//String coordinate_y = (String)request.getAttribute("coordinate_y");
-		
+
 		String[] coordinate_x = (String[])request.getAttribute("coordinate_x");
 		String[] coordinate_y = (String[])request.getAttribute("coordinate_y");
 		int size = coordinate_x.length;

@@ -1,9 +1,8 @@
-
-
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Signin
+ * Servlet implementation class Welcome
  */
-@WebServlet("/Signin")
-public class Signin extends HttpServlet {
+@WebServlet("/Welcome")
+public class Welcome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Signin() {
+    public Welcome() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,42 +40,11 @@ public class Signin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        String id = request.getParameter("email");
-        String password = request.getParameter("psw");
-        String nome = request.getParameter("nome");
-        String cognome = request.getParameter("cognome");
-        
-        try{
-        	Class.forName("com.mysql.jdbc.Driver");
-        Connection  con=DriverManager.getConnection
-                ("jdbc:mysql://localhost:3306/esempio","root","01072014");
+        //String nome = (String)request.getAttribute("nome");
+		//String cognome = (String)request.getAttribute("cognome");
+        //out.println("Welcome" + nome + cognome);
+        //response.sendRedirect("index.html");
+        response.sendRedirect("index2.jsp");
+      }  
 
-   PreparedStatement ps=con.prepareStatement
-             ("INSERT INTO anagrafica (password,id,nome,cognome) VALUES (?,?,?,?)");
-
-   ps.setString(1,password);
-   ps.setString(2, id);
-   ps.setString(3,nome);
-   ps.setString(4, cognome);
-  
-   int i=ps.executeUpdate();
-   
-     if(i>0)
-     {
-       out.println("You are sucessfully registered");
-       response.sendRedirect("index.html");
-     }
-   
-   }
-   catch(Exception se)
-   {
-	   
-       se.printStackTrace();
-   }
-
- }
-    }  
-
-
-
+}

@@ -42,7 +42,7 @@ public class Login2 extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
        
-        String id = request.getParameter("id");
+        String user = request.getParameter("id");
         String password = request.getParameter("password");
         
         
@@ -56,7 +56,7 @@ public class Login2 extends HttpServlet {
                           ("jdbc:mysql://localhost:3306/esempio","root","01072014");
            PreparedStatement ps =con.prepareStatement
                                ("SELECT * FROM anagrafica WHERE id =? and password=?");
-           ps.setString(1, id);
+           ps.setString(1, user);
            ps.setString(2, password) ;
            ResultSet rs =ps.executeQuery();
            HttpSession session = null;
@@ -67,7 +67,7 @@ public class Login2 extends HttpServlet {
             	String nome = rs.getString("nome");   
             	String cognome = rs.getString("cognome");  
             	String data = rs.getString("data");
-            	String email = rs.getString("id");
+            	String id = rs.getString("id");
             	String psw = rs.getString("password");
             	String foto= rs.getString("foto");
             	
@@ -77,7 +77,8 @@ public class Login2 extends HttpServlet {
             session.setAttribute("nome", nome);
             session.setAttribute("cognome", cognome);
             session.setAttribute("foto", foto);
-            out.print("WELCOME, "+nome); 
+            session.setAttribute("id", id);
+            out.print("WELCOME, "+nome +" " + id); 
         	response.sendRedirect("index2.jsp");
             
             

@@ -16,7 +16,7 @@ session=request.getSession(false);
 if (session != null) {
 	if (session.getAttribute("nome") != null) {
 		
-		out.print("Hello, " + (String) session.getAttribute("nome") + "  Welcome ");
+		out.print("Hello, " + (String) session.getAttribute("nome") + (String)session.getAttribute("id") +"  Welcome ");
 	} else {
 		response.sendRedirect("SimpleLogin.html");
 	}
@@ -33,8 +33,8 @@ response.setDateHeader("Expires", 0);
 
 
 <a href="Logout">Logout</a>
-
 <a href="Profile">Profile</a>  
+<a href="Friends.jsp">AddFriend</a>
 <form method="post" action="markerManager">
 Città:<input type="text" name="citta" >
   <select name="tipo">

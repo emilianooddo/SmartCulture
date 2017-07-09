@@ -17,6 +17,18 @@
     <servlet-class>AddFriend</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>friendList</servlet-name>
+    <servlet-class>FriendList</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>showRequets</servlet-name>
+    <servlet-class>ShowRequets</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>acceptFriend</servlet-name>
+    <servlet-class>AcceptFriend</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>signin</servlet-name>
     <servlet-class>Signin</servlet-class>
   </servlet>
@@ -63,6 +75,18 @@
   <servlet-mapping>
     <servlet-name>addFriend</servlet-name>
     <url-pattern>/addFriend</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>acceptFriend</servlet-name>
+    <url-pattern>/acceptFriend</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>friendList</servlet-name>
+    <url-pattern>/friendList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>showRequets</servlet-name>
+    <url-pattern>/showRequets</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>SimpleSignin.html</welcome-file>

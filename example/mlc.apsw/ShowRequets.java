@@ -20,14 +20,14 @@ import com.mysql.cj.api.jdbc.Statement;
 /**
  * Servlet implementation class FriendsManager
  */
-@WebServlet("/AddFriend")
-public class AddFriend extends HttpServlet {
+@WebServlet("/ShowRequets")
+public class ShowRequets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddFriend() {
+    public ShowRequets() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,25 +36,14 @@ public class AddFriend extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-        response.setContentType("text/html;charset=UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+        request.getRequestDispatcher("friend_list.jsp").include(request, response); 
         PrintWriter out = response.getWriter();
-        //request.getRequestDispatcher("friend_list.jsp").include(request, response);  
-        
-        
-        String id = request.getParameter("id");
+        List<String> myFriends = new ArrayList<String>();
+        String user,user2;
         HttpSession session=request.getSession(false);  
-        if(session!=null){  
-        String nome=(String)session.getAttribute("id");  
         
+        user=(String) session.getAttribute("id");
         
         try{
         Class.forName("com.mysql.jdbc.Driver");
@@ -62,24 +51,52 @@ public class AddFriend extends HttpServlet {
                 ("jdbc:mysql://localhost:3306/esempio","root","01072014");
 
         PreparedStatement ps=con.prepareStatement
-        		("INSERT INTO richieste (user_ric,user_ricev) VALUES (?,?)");
+        		("SELECT * FROM richieste WHERE user_ricev=?");
         		
-        ps.setString(1, nome);
-        ps.setString(2, id);
+        ps.setString(1, user);
         
-        int i=ps.executeUpdate();
         
-        if(i>0)
+        ResultSet rs =ps.executeQuery();
+        String user_ric = new String();
+        while(rs.next())
         {
-        	out.println("Friend request successfully sent");
+        	
+
+        	
+        	user_ric = rs.getString("user_ric");
+        	myFriends.add(user_ric);
+        	//request.setAttribute("user_ric",user_ric);
+        	out.print(user_ric + " <a id=\"add\" href="+"AcceptFriend"+">Aggiungi</a>"+"</br>");
+        	session.setAttribute("user_ric",user_ric);
+        	
         }
         
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
+        
+        //for(Utente u: myFriends)
+            //out.println(u + "</br>");
+        
+            
+            }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        	
+        	
+        
+        
+        
+        
         out.close(); 
         }
-	}
-}
 
+		
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+        
+}
+}

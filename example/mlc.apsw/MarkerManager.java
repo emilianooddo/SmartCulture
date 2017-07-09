@@ -59,7 +59,7 @@ public class MarkerManager extends HttpServlet {
         	String name = rs.getString("nome");
         	String city = rs.getString("citta");
         	Luogo l = new Luogo(city,x,y,type,name);
-        	myElements.add(i,l);
+        	myElements.add(l);
         	
         	
         	        }

@@ -15,7 +15,7 @@
 	%>
 </head>
 <body>
-
+<a href="ShowRequets">Richieste</a>
     <form id="myAjaxRequestForm" action="friendsManager">
         <fieldset>
             <legend>Cerca amici!</legend>
@@ -53,7 +53,8 @@ $(document).ready(function() {
     success: function(data) {
     $("#id").val('');
     $("#ajaxResponse").html(data);
-    $("#ajaxResponse").append(" <a id=\"add\" href="+"AddFriend"+">Aggiungi</a>");
+    $("#ajaxResponse").append(" <a id=\"add\" href="+"AddFriend"+">Invia richiesta</a>");
+    
     $('#add').click(function(e) {
         e.preventDefault();
         
