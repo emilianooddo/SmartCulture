@@ -47,7 +47,7 @@ public class Register extends HttpServlet {
                      ("jdbc:mysql://localhost:3306/webappdb","root","root");
         
         PreparedStatement ps=con.prepareStatement
-                  ("insert into user values(NULL,?,?,?,?,?,?,NULL,NULL,NULL)");
+                  ("insert into user values(?,?,?,?,?,?,NULL)");
         
         // CONTROLLARE ECCEZIONI PER EVITARE REGISTRAZIONI CON STESSA EMAIL
         
