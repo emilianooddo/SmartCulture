@@ -19,13 +19,17 @@ public class Register extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+    
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
 	
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
@@ -45,6 +49,9 @@ public class Register extends HttpServlet {
         PreparedStatement ps=con.prepareStatement
                   ("insert into user values(NULL,?,?,?,?,?,?,NULL,NULL,NULL)");
         
+        // CONTROLLARE ECCEZIONI PER EVITARE REGISTRAZIONI CON STESSA EMAIL
+        
+        
         ps.setString(1, name);
         ps.setString(2, surname);
         ps.setString(3, email);
@@ -55,7 +62,7 @@ public class Register extends HttpServlet {
         
           if(i>0)
           {
-            out.println("You are successfully registered");
+            response.sendRedirect("loginSigned.html");
           }
         
         }
