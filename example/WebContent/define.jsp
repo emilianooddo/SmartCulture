@@ -14,60 +14,26 @@
 </head>
 <body onload="maps()">
 
-		<%
-
-		String[] coordinate_x = (String[])request.getAttribute("coordinate_x");
-		String[] coordinate_y = (String[])request.getAttribute("coordinate_y");
-		String[] nomi = (String[])request.getAttribute("nomi");
-		int size = coordinate_x.length;
-		
-		for (int i = 0; i < size; i++) {  
-		String prova = nomi[i];
-		}
-	%>
-		
-		
 <h3>Risultati della ricerca:</h3>
 
 
 <div id="map" style="width: 1500px; height: 650px; position: relative; top:0; overflow: hidden;"></div>
-<div id="elements"></div>
-
-   
+<form method="post" action="defineElements">
+<input id="latbox" type="hidden" name="maps_latitude" id="maps_latitude" value="">
+<input id="lngbox" type="hidden" name="maps_longitude" id="maps_longitude" value="">
+  </form> 
+  <script type="text/javascript" src="jquery-2.2.4.js"></script>
 <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAueas29SNrOG_NHvyesnZnZb-ktwfkkGg&callback=initMap"
   type="text/javascript"></script>
    <script type="text/javascript">
    
       function maps() {
     	  
-    	  var start ="";
-    	 var size='<%=size%>';
-    	  var X=[];  
-    	  <%  
-    	  for (int i=0; i < size; i++) {  
-    	  %>  
-    	  X[<%= i %>] = '<%=coordinate_x[i] %>';   
-    	  <%}%> 
-    	  
-    	  var Y =[];  
-    	  <%  
-    	  for (int i=0; i < size; i++) {  
-    	  %>  
-    	  Y[<%= i %>] = '<%=coordinate_y[i] %>';   
-    	  <%}%> 
-    	  
-    	  var nomi=[];
-    	  
-    	  <%  
-    	  for (int i=0; i < size; i++) {  
-    	  %>  
-    	  nomi[<%= i %>] = '<%=nomi[i] %>';   
-    	  <%}%> 
-    	  
-    	  var template ="";
-    	  var desc =[];
-
-    	var map = new google.maps.Map(document.getElementById('map'), {
+    	  var X=["38.1203","38.1253","38.1146"];
+    	  var Y=["13.3572","13.3567","13.356"];
+			var size = X.length;
+    		var desc = [];
+    		var map = new google.maps.Map(document.getElementById('map'), {
     	      zoom: 12,
     	      center: new google.maps.LatLng(38.115016, 13.354877),
     	      mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -118,13 +84,11 @@
 
     	      
     	      
-    	      
     	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
     	        return function() {
-    	          infowindow.setContent(desc[i]+ " <a id=\"add\" href="+"Add"+">Aggiungi</a>");
+    	          infowindow.setContent(desc[i]);
     	          infowindow.open(map, marker);
-    	          $('#add').click(function(e) {
-    	              e.preventDefault();
+    	          
     	          var dataRequestObject= {};
     	          dataRequestObject= {lat:X[i],lng:Y[i]};
     	         	$.ajax({
@@ -133,29 +97,19 @@
   	        	    type: 'POST',
   	        	  	data: dataRequestObject
   	        	   });
-    	          });
+  	        	   
     	        }
+      	     
     	      })(marker, i));
     	      
+    	      
     	     
-    	      template = template + nomi[i] + " <a href=\"#\" onclick="+"bookmark(this);\" value="+ nomi[i]+">Invia richiesta</a>" + "</br>";
-    	      
-    	      function bookmark(lnk)
-    	      {
-    	          alert(lnk.getAttribute('value'));
-    	      }
-    	      
-    	      
     	    }
-    			
-    			document.getElementById("elements").innerHTML = template;
-    			
-    			
     			
     			
     	}
          
-      
+
    </script>
    
 </body>

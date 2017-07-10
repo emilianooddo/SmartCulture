@@ -8,6 +8,10 @@
     <servlet-name>markerManager</servlet-name>
     <servlet-class>MarkerManager</servlet-class>
   </servlet>
+   <servlet>
+    <servlet-name>defineElements</servlet-name>
+    <servlet-class>DefineElements</servlet-class>
+  </servlet>
   <servlet>
     <servlet-name>friendsManager</servlet-name>
     <servlet-class>FriendsManager</servlet-class>
@@ -67,6 +71,10 @@
   <servlet-mapping>
     <servlet-name>markerManager</servlet-name>
     <url-pattern>/markerManager</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>defineElements</servlet-name>
+    <url-pattern>/defineElements</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>friendsManager</servlet-name>

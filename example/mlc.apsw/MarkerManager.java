@@ -66,17 +66,21 @@ public class MarkerManager extends HttpServlet {
         int size = myElements.size();
         String[] coordinate_x = new String[size];
         String[] coordinate_y = new String[size];
+        String[] nomi = new String[size];
         Luogo[] array = myElements.toArray(new Luogo[size]);
         
         for(i=0;i<size;i++){
         	coordinate_x[i] = array[i].getX();
         	coordinate_y[i] = array[i].getY();
+        	nomi[i] = array[i].getNome();
+        	
         	}
        
         
        
         request.setAttribute("coordinate_x", coordinate_x);
         request.setAttribute("coordinate_y", coordinate_y);
+        request.setAttribute("nomi", nomi);
         request.setAttribute("size", size);
         
         
