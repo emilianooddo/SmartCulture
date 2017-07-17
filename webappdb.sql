@@ -25,15 +25,11 @@ DROP TABLE IF EXISTS `friendship`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `friendship` (
-  `friendshipID` varchar(10) NOT NULL,
+  `idFriendship` int(10) NOT NULL AUTO_INCREMENT,
   `friend1` varchar(30) DEFAULT NULL,
   `friend2` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`friendshipID`),
-  KEY `friend1_idx` (`friend1`),
-  KEY `friend2_idx` (`friend2`),
-  CONSTRAINT `friend1` FOREIGN KEY (`friend1`) REFERENCES `user` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `friend2` FOREIGN KEY (`friend2`) REFERENCES `user` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`idFriendship`)
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +38,7 @@ CREATE TABLE `friendship` (
 
 LOCK TABLES `friendship` WRITE;
 /*!40000 ALTER TABLE `friendship` DISABLE KEYS */;
+INSERT INTO `friendship` VALUES (87,'vito.oddo','emiliano.oddo'),(88,'sino.patti','vito.oddo'),(90,'sino.patti','emiliano.oddo'),(91,'emiliano.oddo','maria.livorno');
 /*!40000 ALTER TABLE `friendship` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,13 +50,15 @@ DROP TABLE IF EXISTS `list_location`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `list_location` (
+  `idList` int(10) NOT NULL AUTO_INCREMENT,
   `user_loc` varchar(30) DEFAULT NULL,
   `loc_name` varchar(45) DEFAULT NULL,
-  KEY `user_loc_idx` (`user_loc`),
+  PRIMARY KEY (`idList`),
   KEY `loc_name_idx` (`loc_name`),
+  KEY `user_loc_idx` (`user_loc`),
   CONSTRAINT `loc_name` FOREIGN KEY (`loc_name`) REFERENCES `location` (`name_location`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `user_loc` FOREIGN KEY (`user_loc`) REFERENCES `user` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `user_loc` FOREIGN KEY (`user_loc`) REFERENCES `user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,6 +67,7 @@ CREATE TABLE `list_location` (
 
 LOCK TABLES `list_location` WRITE;
 /*!40000 ALTER TABLE `list_location` DISABLE KEYS */;
+INSERT INTO `list_location` VALUES (7,'emiliano.oddo','Palazzina Cinese'),(11,'emiliano.oddo','Teatro Politeama'),(12,'sino.patti','Teatro Massimo'),(13,'emiliano.oddo','Cappella Palatina'),(15,'emiliano.oddo','Museo Archeologico Salinas'),(16,'maria.livorno','Teatro Politeama');
 /*!40000 ALTER TABLE `list_location` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,15 +107,15 @@ DROP TABLE IF EXISTS `request`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `request` (
-  `idRequest` int(10) NOT NULL,
+  `idRequest` int(10) NOT NULL AUTO_INCREMENT,
   `sender` varchar(30) DEFAULT NULL,
   `receiver` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`idRequest`),
   KEY `sender_idx` (`sender`),
   KEY `receiver_idx` (`receiver`),
-  CONSTRAINT `receiver` FOREIGN KEY (`receiver`) REFERENCES `user` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `sender` FOREIGN KEY (`sender`) REFERENCES `user` (`email`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `receiver` FOREIGN KEY (`receiver`) REFERENCES `user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `sender` FOREIGN KEY (`sender`) REFERENCES `user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,15 +135,17 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
+  `username` varchar(30) NOT NULL,
   `name` varchar(40) NOT NULL,
   `surname` varchar(40) NOT NULL,
   `email` varchar(30) NOT NULL,
   `gender` varchar(20) DEFAULT NULL,
   `password` varchar(45) NOT NULL,
-  `birth` date DEFAULT NULL,
+  `birth` date NOT NULL,
   `avatar` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`email`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
+  PRIMARY KEY (`username`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `nickname` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -153,7 +155,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('eleonora','siragusa','ele.sira@gmail.com','female','elesiri','1996-08-30',NULL),('Emiliano','Oddo','emiliano.oddo@gmail.com','male','kingking','1993-05-26','photos/emi.jpg'),('cristina','ciulla','maria.cristina@libero.it','female','cricri','1990-06-01',NULL),('Sino','Patti','sinopatti@libero.it','male','devildevil','1993-10-28',NULL),('vito','oddo','vito@gmail.com','male','vitovito','1986-05-31',NULL);
+INSERT INTO `user` VALUES ('emiliano.oddo','Emiliano','Oddo','emiliano.oddo@gmail.com','male','kingking','1993-05-26','photos/emi.jpg'),('maria.livorno','Maria','Livorno','marialivorno@gmail.com','female','mariamaria','1956-05-25',NULL),('silvia.randazzo','Silvia','Randazzo','silvi@gmail.com','female','silvisilvi','1995-09-14',NULL),('sino.patti','Sino','Patti','sinopatti@libero.it','male','sinosino','1993-10-28',''),('vito.oddo','Vito','Oddo','vitod86@gmail.com','male','vitovito','1986-05-31',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -166,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-09  9:47:23
+-- Dump completed on 2017-07-17  9:08:33
