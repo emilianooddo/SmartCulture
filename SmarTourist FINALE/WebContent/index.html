@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="css/index.css"  type="text/css">
+	<meta charset="ISO-8859-1">
+	<title>SmarTourist</title>
+</head>
+
+<body>
+
+<div id="bar">
+	<div id="title">
+		<h1>SmarTourist</h1>
+	</div>
+	<div id="image">
+		<img src="logo.png" width="15%" height="15%">
+	</div>
+	<form id="userlogin" method="post" action="Login">
+		<input id="user_log" type="text" name="user" placeholder="Username" value="" required>
+		<input id="password_log" type="password" placeholder="Password" name="pass" value="">
+		<input type="submit" value="Accedi">
+	</form>
+</div>
+
+ <br><br><br><br><br><br><br><br><br>
+ 
+<div align="center" id="register">
+	<h2>Crea un nuovo Account</h2>
+	<form id="usersignin" method="post" action="Register">
+  	Nome <br><input id="name" type="text" name="name" placeholder="Nome" value="" required><br>
+	Cognome <br><input id="surname" type="text" name="surname" placeholder="Cognome" value="" required><br>
+	E-mail <br><input id="email" type="email" name="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="" required><br>
+	Username <br><input id="username" type="text" name="username" placeholder="Username" value="" required><br>
+	Password <br><input id="pass" type="password" name="password" placeholder="Password" value="" required><br><br>
+	Data di nascita <input id="birth" type="date" name="birth" required><br><br>
+  
+	<div id="gen">
+ 		<input type="radio" name="gender" value="male" checked> Uomo
+		<input type="radio" name="gender" value="female"> Donna
+ 	</div>
+  	<p id="newaccount"><input type="submit" value="CREA ACCOUNT"></p>
+ 	</form> 
+	<p align="center">Oppure <a href="guest.html">prosegui come OSPITE</a></p>
+</div>
+
+</body>
+</html>
