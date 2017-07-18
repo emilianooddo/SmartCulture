@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/guest.css"  type="text/css">
+<meta charset="ISO-8859-1">
+<link rel="shortcut icon" href="icon.png" type="image/png"/>
+<title>SmarTourist</title>
+</head>
+
+<div id="bar">
+<div id="title"><h1>SmarTourist</h1></div>
+<div id="image"><img src="logo.png" width="15%" height="15%"></div>
+<div id="welcome"><h3>Benvenuto Ospite!</h3></div>
+</div>
+
+
+<body>
+<div id="container">
+
+<h2>Cerca i tuoi luoghi di interesse</h2>
+<form method="post" action="MarkerManagerGuest">
+Città:<input type="text" name="citta" >
+  <select name="tipo">
+    <option value="monumento">Monumento</option>
+    <option value="chiesa">Chiese Cattedrali</option>
+    <option value="museo">Museo</option>
+    </select>
+  <br><br>
+  <input type="submit"  value="Cerca">
+</form>
+ <div id="map" style="width: 100%; height: 40%; position: relative; top:0; overflow: hidden;"></div>
+</div>
+</body>
+</html>
